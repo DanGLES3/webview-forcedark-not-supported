@@ -2,6 +2,8 @@ package ru.kuchanov.nightmode
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Base64
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -34,7 +36,15 @@ class MainActivity : AppCompatActivity() {
         webSettings.javaScriptEnabled = true
         webSettings.domStorageEnabled = true
 
-        binding.webView.loadUrl("https://vk.com/")
+//        binding.webView.loadUrl("https://vk.com/")
+        loadContentInWebView(binding.webView)
+        loadContentInWebView(binding.webView1)
+    }
+
+    private fun loadContentInWebView(webView: WebView) {
+        val htmlString = StorageUtils.readFromAssets(this, "table.html")
+        val base64 = Base64.encodeToString(htmlString.toByteArray(Charsets.UTF_8), Base64.DEFAULT)
+        webView.loadData(base64, "text/html; charset=UTF-8", "base64")
     }
 
     private fun switchAppTheme() {
@@ -54,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                 WebSettingsCompat.FORCE_DARK_OFF
             }
             WebSettingsCompat.setForceDark(binding.webView.settings, themeForWebView)
+            WebSettingsCompat.setForceDark(binding.webView1.settings, themeForWebView)
         } else {
             Toast.makeText(
                 this,

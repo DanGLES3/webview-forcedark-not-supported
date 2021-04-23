@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="click_me_to_switch_theme">CLICK ME TO USE DAY THEME!</string>
+    <string name="theme_advantages">Theme switching in WebView is great feature!</string>
+    <string name="current_theme">CURRENT THEME IS NIGHT!</string>
+</resources>
