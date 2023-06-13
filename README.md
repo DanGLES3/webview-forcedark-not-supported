@@ -1,4 +1,4 @@
-# Night Mode switch example with WebView
+# Night Mode switch example with WebViewa
 
 This code demonstrates basic Night Mode switch example and can be used to test if your device has WebView FORCE_DARK feature support.
 
